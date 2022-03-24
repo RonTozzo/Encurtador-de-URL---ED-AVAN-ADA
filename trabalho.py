@@ -66,27 +66,34 @@ print('[3] Para Testar a conversao de uma string codificada para inteiro')
 print('[4] Mostrar tabela hash (dicionário)')
 print('[0] Para fechar o programa')
 print()
-option = int(input('Qual operação deseja realizar??  '))
+option = int(input('Qual operação deseja realizar?  '))
 print()
         
 if option == 1:
-    url = input("Qual a url que voce desjea encurtar??")
+    url = input("Qual a url que voce deseja encurtar?  ")
 
     shorter.encurtar(url)
     print("A url: {}. \nFoi convertida com sucesso".format(url))
         
 elif option == 2:
-    print('Função em desenovlimento')
+    nums = int(input('Que números voce deseja converter?  '))
+
+    result = shorter.toBase(nums)
+    print('\n aqui está o numero ja convertido:\n{}'.format(result))
 elif option == 3:
-    print('Função em desenovlimento')
+    base = input('Que string codificada voce deseja converter?  ')
+
+    result = shorter.to10(base)
+    print('\n aqui está a string ja convertida:\n{}'.format(result))
 elif option == 4:
     os.system('cls')
     shorter.listar_urls()
     print()
 elif option > 4:
     print("Opção invalida"),
-else:
-    print("Obrigado por utilizar o programa")
+
+
+print("\nObrigado por utilizar o programa")
 
 
 
