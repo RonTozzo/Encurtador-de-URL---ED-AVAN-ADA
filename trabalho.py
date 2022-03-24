@@ -60,39 +60,49 @@ class UrlShorterProgram:
 
 shorter = UrlShorterProgram()
 
-print('[1] Para converter URL para URL curta.')
-print('[2] Para Testar a conversao de um inteiro para string codificada')
-print('[3] Para Testar a conversao de uma string codificada para inteiro')
-print('[4] Mostrar tabela hash (dicionário)')
-print('[0] Para fechar o programa')
-print()
-option = int(input('Qual operação deseja realizar?  '))
-print()
-        
-if option == 1:
-    url = input("Qual a url que voce deseja encurtar?  ")
-
-    shorter.encurtar(url)
-    print("A url: {}. \nFoi convertida com sucesso".format(url))
-        
-elif option == 2:
-    nums = int(input('Que números voce deseja converter?  '))
-
-    result = shorter.toBase(nums)
-    print('\n aqui está o numero ja convertido:\n{}'.format(result))
-elif option == 3:
-    base = input('Que string codificada voce deseja converter?  ')
-
-    result = shorter.to10(base)
-    print('\n aqui está a string ja convertida:\n{}'.format(result))
-elif option == 4:
-    os.system('cls')
-    shorter.listar_urls()
+def run():
+    print('[1] Para converter URL para URL curta.')
+    print('[2] Para Testar a conversao de um inteiro para string codificada')
+    print('[3] Para Testar a conversao de uma string codificada para inteiro')
+    print('[4] Mostrar tabela hash (dicionário)')
+    print('[0] Para fechar o programa')
     print()
-elif option > 4:
-    print("Opção invalida"),
+    option = int(input('Qual operação deseja realizar?  '))
+    print()
+            
+    if option == 1:
+        url = input("Qual a url que voce deseja encurtar?  ")
+
+        shorter.encurtar(url)
+        print("A url: {}. \nFoi convertida e salva com sucesso".format(url))
+
+        showList = input('\nDeseja ver a lista de urls convertidas? S/N ').upper()
+        if(showList == 'S'):
+            os.system('cls')
+            shorter.listar_urls()
+            
+            
+    elif option == 2:
+        nums = int(input('Que números voce deseja converter?  '))
+
+        result = shorter.toBase(nums)
+        print('\nAqui está o numero já convertido:\n{}'.format(result))
+    elif option == 3:
+        base = input('Que string codificada voce deseja converter?  ')
+
+        result = shorter.to10(base)
+        print('\nAqui está a string já convertida:\n{}'.format(result))
+    elif option == 4:
+        os.system('cls')
+        shorter.listar_urls()
+        print()
+    elif option > 4:
+        os.system('cls')
+        print("Opção invalida, tente novamente"),
+        run()
 
 
+run()
 print("\nObrigado por utilizar o programa")
 
 
